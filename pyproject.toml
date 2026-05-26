@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mimo-tradelens"
+version = "0.1.0"
+description = "AI-powered crypto trade analyst using Xiaomi MiMo V2.5 (multimodal vision + reasoning)."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Anasfzi", email = "anasfauzi168@gmail.com" }]
+keywords = ["crypto", "trading", "ai", "mimo", "xiaomi", "technical-analysis", "ccxt"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Financial and Insurance Industry",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+requires-python = ">=3.10"
+dependencies = [
+  "ccxt>=4.0.0",
+  "matplotlib>=3.7",
+  "numpy>=1.24",
+  "openai>=1.30",
+  "pandas>=2.0",
+  "pandas-ta-classic>=0.5.0",
+  "pydantic>=2.5",
+  "rich>=13.7",
+  "typer>=0.12",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.4",
+]
+
+[project.scripts]
+mimo-tradelens = "mimo_tradelens.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/Anasfzi/mimo-tradelens"
+Repository = "https://github.com/Anasfzi/mimo-tradelens"
+Issues = "https://github.com/Anasfzi/mimo-tradelens/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mimo_tradelens"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
